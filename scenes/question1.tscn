@@ -1,0 +1,499 @@
+[gd_scene load_steps=19 format=3 uid="uid://kuitld8l0trs"]
+
+[ext_resource type="Script" uid="uid://b82xu52snovpw" path="res://scripts/question_1.gd" id="1_3lkgs"]
+[ext_resource type="Theme" uid="uid://cdkkvvhj0byty" path="res://themes/text.tres" id="2_lxt5o"]
+[ext_resource type="Shader" uid="uid://b4o3igw5683m7" path="res://shaders/background.gdshader" id="3_wyj82"]
+[ext_resource type="AudioStream" uid="uid://kijxpwhs7l24" path="res://audio/correct.mp3" id="4_cshsu"]
+[ext_resource type="AudioStream" uid="uid://0ic0rfo38ujq" path="res://audio/incorrect.mp3" id="5_sbqha"]
+[ext_resource type="AudioStream" uid="uid://cxfsi2xh014ji" path="res://audio/buzzer.mp3" id="6_l83gs"]
+[ext_resource type="PackedScene" uid="uid://dnw3sxlsvrfqp" path="res://scenes/strike.tscn" id="7_nk536"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v18cw"]
+bg_color = Color(0.158191, 0.261599, 0.547402, 1)
+border_width_left = 20
+border_width_bottom = 20
+border_color = Color(0.270585, 0.366815, 0.524494, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="Theme" id="Theme_7cnlj"]
+Panel/styles/panel = SubResource("StyleBoxFlat_v18cw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cnlj"]
+shader = ExtResource("3_wyj82")
+shader_parameter/u_speed = 0.15
+shader_parameter/u_color_low = Color(0.251015, 0.108061, 0.00667548, 1)
+shader_parameter/u_color_mid_red = Color(0.834525, 0.435204, 0.233795, 1)
+shader_parameter/u_color_high = Color(0.997856, 0.952838, 0.93074, 1)
+
+[sub_resource type="Animation" id="Animation_jbhae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/Answer1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Answer1:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer3/Answer1:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer/Answer1:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer2/Answer1:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer3/Answer1:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7cnlj"]
+resource_name = "answer1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/Answer1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_l4rwd"]
+resource_name = "answer2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Answer1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_li28k"]
+resource_name = "answer3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer3/Answer1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7bpjx"]
+resource_name = "answer4"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer/Answer1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_4qed5"]
+resource_name = "answer5"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer2/Answer1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_uye2t"]
+resource_name = "answer6"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer3/Answer1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kf5vr"]
+_data = {
+&"RESET": SubResource("Animation_jbhae"),
+&"answer1": SubResource("Animation_7cnlj"),
+&"answer2": SubResource("Animation_l4rwd"),
+&"answer3": SubResource("Animation_li28k"),
+&"answer4": SubResource("Animation_7bpjx"),
+&"answer5": SubResource("Animation_4qed5"),
+&"answer6": SubResource("Animation_uye2t")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3lkgs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Answer1" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_lxt5o")
+bbcode_enabled = true
+text = "[wave] Name six people."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnswerBack1" type="Panel" parent="VBoxContainer/MarginContainer/Answer1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7cnlj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Answer1" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_lxt5o")
+bbcode_enabled = true
+text = "[wave] ur mom"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnswerBack22" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/Answer1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_7cnlj")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Answer1" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_lxt5o")
+bbcode_enabled = true
+text = "[wave] ur dad"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnswerBack3" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Answer1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_7cnlj")
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Answer1" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer3"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_lxt5o")
+bbcode_enabled = true
+text = "[wave] ur dog"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnswerBack4" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer3/Answer1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_7cnlj")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Answer1" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_lxt5o")
+bbcode_enabled = true
+text = "[wave] ur sister"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnswerBack5" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer/Answer1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_7cnlj")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Answer1" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer2"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_lxt5o")
+bbcode_enabled = true
+text = "[wave] ur brother"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnswerBack6" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer2/Answer1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_7cnlj")
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Answer1" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer3"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_lxt5o")
+bbcode_enabled = true
+text = "[wave] ur cousin"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnswerBack7" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer3/Answer1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_7cnlj")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -3
+material = SubResource("ShaderMaterial_7cnlj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.857617, 0.527673, 0.233013, 1)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kf5vr")
+}
+
+[node name="correct" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cshsu")
+
+[node name="incorrect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sbqha")
+
+[node name="buzzer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_l83gs")
+
+[node name="Node2D" parent="." instance=ExtResource("7_nk536")]
+position = Vector2(569, 358)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/Answer1/AnswerBack22" to="." method="_on_answer_back_22_focus_entered"]
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/Answer1/AnswerBack3" to="." method="_on_answer_back_3_focus_entered"]
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer3/Answer1/AnswerBack4" to="." method="_on_answer_back_4_focus_entered"]
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer/Answer1/AnswerBack5" to="." method="_on_answer_back_5_focus_entered"]
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer2/Answer1/AnswerBack6" to="." method="_on_answer_back_6_focus_entered"]
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer3/Answer1/AnswerBack7" to="." method="_on_answer_back_7_focus_entered"]

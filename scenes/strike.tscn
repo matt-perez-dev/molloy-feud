@@ -1,0 +1,142 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnw3sxlsvrfqp"]
+
+[ext_resource type="Script" uid="uid://5tvyd27xygl" path="res://scripts/strike.gd" id="1_7gbkp"]
+[ext_resource type="Texture2D" uid="uid://ds7bscj747whm" path="res://assets/strike.png" id="2_o8gmw"]
+
+[sub_resource type="Animation" id="Animation_w70ee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1strike:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2strike:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("3strike:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_7gbkp"]
+resource_name = "strike1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1strike:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.25, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_o8gmw"]
+resource_name = "strike2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("2strike:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.25, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_8hfdl"]
+resource_name = "strike3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("3strike:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.25, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pitd6"]
+_data = {
+&"RESET": SubResource("Animation_w70ee"),
+&"strike1": SubResource("Animation_7gbkp"),
+&"strike2": SubResource("Animation_o8gmw"),
+&"strike3": SubResource("Animation_8hfdl")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7gbkp")
+
+[node name="1strike" type="Node2D" parent="."]
+z_index = 4
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Strike" type="Sprite2D" parent="1strike"]
+texture = ExtResource("2_o8gmw")
+
+[node name="2strike" type="Node2D" parent="."]
+z_index = 4
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Strike2" type="Sprite2D" parent="2strike"]
+position = Vector2(341, 0)
+texture = ExtResource("2_o8gmw")
+
+[node name="Strike3" type="Sprite2D" parent="2strike"]
+position = Vector2(-339, 0)
+texture = ExtResource("2_o8gmw")
+
+[node name="3strike" type="Node2D" parent="."]
+z_index = 4
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Strike2" type="Sprite2D" parent="3strike"]
+position = Vector2(-5, 0)
+texture = ExtResource("2_o8gmw")
+
+[node name="Strike4" type="Sprite2D" parent="3strike"]
+position = Vector2(667, 0)
+texture = ExtResource("2_o8gmw")
+
+[node name="Strike3" type="Sprite2D" parent="3strike"]
+position = Vector2(-685, 0)
+texture = ExtResource("2_o8gmw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pitd6")
+}
